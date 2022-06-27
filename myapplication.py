@@ -13,7 +13,7 @@ from kivy.uix.button import Button
 class mygrid(GridLayout):
 
     def __init__(self, **kwargs):
-        self.df1 = []
+        self.df1 = [["Student Name", "Student Marks", "Student Gender"]]
         super(mygrid, self).__init__()
         self.cols = 2
         self.add_widget(Label(text="Student Name:"))
@@ -43,7 +43,7 @@ class mygrid(GridLayout):
 
     def export(self, instance):
         df2 = pd.DataFrame(self.df1)
-        df2.to_excel("output.xlsx")
+        df2.to_excel("output.xlsx", header=False)
 
 
 class myapp(App):
